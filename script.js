@@ -5,14 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        // Get trimmed input values
+        // Retrieve and trim input values
         const username = document.getElementById('username').value.trim();
         const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
 
-        // Initialize validation
         let isValid = true;
-        let messages = [];
+        const messages = [];
 
         // Username validation
         if (username.length < 3) {
@@ -34,13 +33,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Display feedback
         feedbackDiv.style.display = 'block';
+
         if (isValid) {
             feedbackDiv.textContent = 'Registration successful!';
-            feedbackDiv.style.color = '#28a745'; // green
+            feedbackDiv.style.color = '#28a745';
             feedbackDiv.style.backgroundColor = '#d4edda';
         } else {
             feedbackDiv.innerHTML = messages.join('<br>');
-            feedbackDiv.style.color = '#d8000c'; // red
+            feedbackDiv.style.color = '#d8000c';
             feedbackDiv.style.backgroundColor = '#ffbaba';
         }
     });
